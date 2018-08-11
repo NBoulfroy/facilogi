@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="col-md-6 offset-md-3">
+        <div class="mt-4" id="response"></div>
+    </div>
+    <div class="col offset col-md-6 offset-md-3">
+        <form method="POST" action="{{ path('postPerson') }}">
+            <div class="mt-4">
+                {{ form_start(form, { 'attr' : { 'class': 'newPerson' } }) }}
+                <div class="row">
+                    {# Last name input #}
+                    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group" id="lastNameGroup">
+                            {{ form_row(form.lastName, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'BOULFROY',
+                                'data-type': 'string'
+                            }}) }}
+                        </div>
+                    </div>
+                    {# First name input #}
+                    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group" id="firstNameGroup">
+                            {{ form_row(form.firstName, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'Nicolas',
+                                'data-type': 'string'
+                            }}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {# Age input #}
+                    <div class="col col-sm-2 col-md-4 col-lg-2 col-xl-2">
+                        <div class="form-group" id="ageGroup">
+                            {{ form_row(form.age, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': '24',
+                                'data-type': 'int'
+                            }}) }}
+                        </div>
+                    </div>
+                    {# E-mail input #}
+                    <div class="col col-sm-10 col-md-8 col-lg-10 col-xl-10">
+                        <div class="form-group" id="emailGroup">
+                            {{ form_row(form.email, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'contact@nicolas-boulfroy.com',
+                                'data-type': 'string'
+                            }}) }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {{ form_row(form.submit) }}
+            {{ form_end(form) }}
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="application/javascript" src="{{ asset('js/Form.js') }}"></script>
+    <script type="application/javascript" src="{{ asset('js/Ajax.js') }}"></script>
+    <script>
+        window.onload = function() {
+            var form = document.getElementsByTagName('form')[0];
+
+            new Form(form, form.getAttribute('method'), form.getAttribute('action'));
+        }
+    </script>
+{% endblock %}
