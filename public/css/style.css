@@ -1,0 +1,17 @@
+/**
+ * General stylesheet file.
+ *
+ * @Project : Facilogi
+ * @File    : css/style.css
+ * @Version : 1.0
+ * @Author  : BOULFROY Nicolas
+ * @Create  : 2018/08/08
+ */
+
+#customNav {
+    background-color:#7CC6FE;
+}
+
+#customNav a {
+    color:rgba(255,255,255,0.9)
+}
