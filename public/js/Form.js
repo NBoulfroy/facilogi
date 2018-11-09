@@ -106,7 +106,7 @@ Form.prototype._reset = function() {
  * @private
  */
 Form.prototype._lastNameControl = function(value) {
-    return /^[A-Z]{1,15}$/g.test(value);
+    return /^[A-Z\-ËÊÂÄÉÅÄÎÏ ]{1,15}$/g.test(value);
 };
 
 /**
@@ -117,7 +117,7 @@ Form.prototype._lastNameControl = function(value) {
  * @private
  */
 Form.prototype._firstNameControl = function(value) {
-    return /^[A-z]{1,15}$/g.test(value);
+    return /^[A-z\-ëËêÊâÂäÄùéèàÉæÅÄìîÎïÏ ]{1,15}$/g.test(value);
 };
 
 /**
